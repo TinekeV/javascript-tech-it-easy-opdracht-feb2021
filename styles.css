@@ -1,0 +1,38 @@
+body {
+    background-color: #ffffff;
+    font-family: "Roboto Light", sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px
+}
+
+.one {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    border: #ff0000 solid 10px;
+}
+
+#notSold {
+    color: red;
+    font-size: 50px;
+    text-align: center;
+}
+
+.two {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    border: blue solid 10px;
+}
+
+.three {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    border: #0eea0e solid 10px;
+}
+
+h1, h3 {
+    text-align: center;
+}

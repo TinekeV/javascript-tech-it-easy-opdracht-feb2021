@@ -161,3 +161,86 @@ const inventory = [
     sold: 8,
   },
 ];
+
+//strategie voor opdracht 1:
+// iets anders? for loop?
+// loopen over alle televisies
+// tellen (variabele count aanmaken)
+// nog te verkopen: originalStock - sold
+// optellen bij het totaal
+
+// stappenplan:
+// [x] functie maken
+// [x] aanroepen
+// [x] parameter toevoegen (inventory)
+// [x] inventory ingeven als argument
+// [x] count variabele (buiten de loop)
+// [x] loop maken (voor elke televisie)
+// [] originalStock - sold optellen bij count
+// [] totaal return uit de functie
+
+// opdracht 1A
+function countInventoryToSell(televisions) {
+  //console.log('SALES!', televisions);
+  let totalCount = 0;
+  for (const television of televisions) {
+    //console.log("television in loop", television.originalStock, television.sold)
+    const toSell = television.originalStock - television.sold;
+    totalCount = totalCount + toSell
+  }
+  //console.log('TOTAL COUNT', totalCount)
+  return totalCount
+}
+
+const totalCount = countInventoryToSell(inventory)
+//console.log('OUTSIDE?', totalCount)
+
+// opdracht 1B
+// weergeven op de pagina
+// - [x] Rekenwerk
+// - [x] HTML element maken
+// - [] Element selecteren waar de count moet worden weergegeven
+// - [] textContent aanpassen met TotalCount
+// - [] Rood maken (in CSS)
+
+
+const notSold = document.getElementById('notSold')
+//console.log(notSold)
+  notSold.textContent = totalCount
+
+
+// ---------------------------------------------------------------------------------------
+
+// Opdracht 2A
+const televisionType = inventory.map((television)=> {
+  return television.brand + " " + television.name
+})
+console.log(televisionType)
+
+// Opdracht 2B
+const televisionsSold = inventory.filter((television) => {
+    if (television.sold === television.originalStock) {
+      return inventory
+    }
+})
+console.log(televisionsSold)
+
+// Opdracht 2C
+const optionAmbiLight = inventory.filter((television) => {
+  if (television.options.ambiLight === true ) {
+    return inventory
+  }
+})
+console.log(optionAmbiLight)
+
+// Opdracht 2D
+const lowToHighPrice = inventory.sort((priceA, priceB) => {
+  return priceA.price - priceB.price
+})
+console.log(lowToHighPrice)
+
+
+// ------------------------------------------------------------------------------------------------
+// OPDRACHT 3
+
+
