@@ -176,8 +176,8 @@ const inventory = [
 // [x] inventory ingeven als argument
 // [x] count variabele (buiten de loop)
 // [x] loop maken (voor elke televisie)
-// [] originalStock - sold optellen bij count
-// [] totaal return uit de functie
+// [x] originalStock - sold optellen bij count
+// [x] totaal return uit de functie
 
 // opdracht 1A
 function countInventoryToSell(televisions) {
@@ -203,19 +203,17 @@ const totalCount = countInventoryToSell(inventory)
 // - [] textContent aanpassen met TotalCount
 // - [] Rood maken (in CSS)
 
-
 const notSold = document.getElementById('notSold')
 //console.log(notSold)
-  notSold.textContent = totalCount
+  notSold.textContent = totalCount;
 
 
-// ---------------------------------------------------------------------------------------
-
+// ------------------------------------------------------------------------------------------------
 // Opdracht 2A
 const televisionType = inventory.map((television)=> {
   return television.brand + " " + television.name
 })
-console.log(televisionType)
+//console.log(televisionType)
 
 // Opdracht 2B
 const televisionsSold = inventory.filter((television) => {
@@ -223,7 +221,7 @@ const televisionsSold = inventory.filter((television) => {
       return inventory
     }
 })
-console.log(televisionsSold)
+//console.log(televisionsSold)
 
 // Opdracht 2C
 const optionAmbiLight = inventory.filter((television) => {
@@ -231,16 +229,63 @@ const optionAmbiLight = inventory.filter((television) => {
     return inventory
   }
 })
-console.log(optionAmbiLight)
+//console.log(optionAmbiLight)
 
 // Opdracht 2D
 const lowToHighPrice = inventory.sort((priceA, priceB) => {
   return priceA.price - priceB.price
 })
-console.log(lowToHighPrice)
+//console.log(lowToHighPrice)
 
 
 // ------------------------------------------------------------------------------------------------
-// OPDRACHT 3
+// OPDRACHT 3A
+
+// wat is onze doel opbrengst? bereken de totale opbrengst als alle exemplaren van iedere type verkocht zou worden
+// originalstock x price voor elk televisie type
+// loop met een counter maken
+
+function targetRevenue(products) {
+  //console.log('SALES!', products);
+  let totalRevenue = 0;
+  for (const product of products) {
+    //console.log("television in loop", product.originalStock, product.price);
+    const targetEarnings = product.originalStock * product.price;
+    totalRevenue = totalRevenue + targetEarnings;
+  }
+  //console.log('TOTAL REVENUE: ', totalRevenue);
+  return totalRevenue;
+}
+
+const totalRevenue = targetRevenue(inventory);
+//console.log('OUTSIDE LOOP: ', totalRevenue);
+
+const revenueProducts = document.getElementById('revenue');
+//console.log(revenueProducts)
+revenueProducts.textContent = totalRevenue;
+
+// OPDRACHT 3B
+
+function totalEarned(products) {
+  //console.log('SALES!', products);
+  let earnings = 0;
+  for (const product of products) {
+    //console.log("television in loop", product.sold, product.price);
+    const soldProducts = product.sold * product.price;
+    earnings = earnings + soldProducts;
+  }
+  //console.log('EARNED ON SOLD PRODUCTS: ', earnings);
+  return earnings;
+}
+
+const totalEarnings = totalEarned(inventory);
+//console.log('OUTSIDE LOOP: ', totalEarnings);
+
+const earningsProductsSold = document.getElementById('earnings');
+//console.log(earningsProductsSold)
+earningsProductsSold.textContent = totalEarnings
+
+// ------------------------------------------------------------------------------------------------
+// OPDRACHT 4
 
 
