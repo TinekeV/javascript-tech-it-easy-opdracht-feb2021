@@ -288,4 +288,36 @@ earningsProductsSold.textContent = totalEarnings
 // ------------------------------------------------------------------------------------------------
 // OPDRACHT 4
 
+// brand & type van gemaakt, is duidelijker
+// meerdere elementen selecteren, twee tv's
+// find methode
+// gekozen type nummers:
+// type: '32WL1A63DG' -> toshiba   -> return true als dit type is gevonden
+// type: '55PUS7805' -> Philips    -> return true als dit type ook is gevonden
+
+
+const televisionOne = inventory.find((television) => {
+  return television.type === '32WL1A63DG'
+})
+// controleren of juiste tv gevonden is:
+//console.log('JUISTE TV? ', televisionOne.brand, televisionOne.type);
+
+// televisie toevoegen op pagina
+// enkel element lokaliseren
+
+const tvOne = document.getElementById('tv-one');
+console.log(tvOne);
+tvOne.textContent = televisionOne.brand + ': ' + televisionOne.type
+
+
+const televisionTwo = inventory.find((television) => {
+  return television.type === '55PUS7805';
+})
+// controleren of juiste tv gevonden is:
+//console.log('TWEEDE TV: ', televisionTwo.brand, televisionTwo.type)
+
+const tvTwo = document.getElementById('tv-two');
+console.log(tvTwo);
+tvTwo.textContent = televisionTwo.brand + ': ' + televisionTwo.type
+
 

@@ -3,7 +3,13 @@ body {
     font-family: "Roboto Light", sans-serif;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     margin-top: 100px
+}
+
+.container {
+    display: flex;
+    justify-content: center;
 }
 
 .one {
@@ -47,4 +53,9 @@ body {
 
 h1, h3 {
     text-align: center;
+}
+
+.television-stock {
+    display: flex;
+    justify-content: center;
 }
