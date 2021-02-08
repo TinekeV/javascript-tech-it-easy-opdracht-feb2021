@@ -329,7 +329,7 @@ function displayPrice(product) {
 
 }
 const priceList = document.getElementsByClassName('productList-item')
-console.log(priceList)
+//console.log(priceList)
 
 for (let index = 0; index < inventory.length; index++) {
   const product = inventory[index];
@@ -345,4 +345,47 @@ for (let index = 0; index < inventory.length; index++) {
 }
 
 
-//     const priceList = document.getElementsByClassName('productList-item');
+// 5C:
+
+// een string voor alle beschikbare schermgroottes van één tv in zowel inches als cm
+// cm = inches * 2.54
+// resultaat = [schermgrootte] inches ([schermgrootte omgerekend]cm) dus
+// een input van [32] geeft 32 inch (81 cm)
+// maar meerdere inputs geven dan 43 inch (109 cm) | 50 inch (127 cm) | 58 inch (147 cm)
+
+function displayScreenSize(item) {
+
+}
+
+
+// ------------------------------------------------------------------------------------------------
+// OPDRACHT 6
+
+// button 1
+// getElementbyID
+// nu de functie nog fixen
+
+function pricesLowToHigh() {
+  inventory.sort((priceA, priceB) => {
+    return priceA.price - priceB.price
+
+  })
+}
+// dit werkt
+const sortPriceButton = document.getElementById('button-one');
+sortPriceButton.addEventListener('click', pricesLowToHigh);
+
+
+// ---------------------------------------------------------------------------
+
+
+function ambiLightOption() {
+  inventory.filter((television) => {
+    if (television.options.ambiLight === true ) {
+      return inventory
+    }
+  })
+}
+
+const ambiLightButton = document.getElementById('button-two');
+ambiLightButton.addEventListener('click', ambiLightOption);

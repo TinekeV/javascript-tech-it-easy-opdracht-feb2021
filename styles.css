@@ -95,3 +95,13 @@ h1, h3, ul {
 /*    background-color: red;*/
 /*}*/
 
+.buttons {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    background-color: darkcyan;
+}
+
+.item {
+
+}
