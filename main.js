@@ -286,38 +286,63 @@ const earningsProductsSold = document.getElementById('earnings');
 earningsProductsSold.textContent = totalEarnings
 
 // ------------------------------------------------------------------------------------------------
-// OPDRACHT 4
+// OPDRACHT 4 -- meegenomen in opdracht 5 om het om te bouwen tot een functie
 
-// brand & type van gemaakt, is duidelijker
-// meerdere elementen selecteren, twee tv's
-// find methode
-// gekozen type nummers:
-// type: '32WL1A63DG' -> toshiba   -> return true als dit type is gevonden
-// type: '55PUS7805' -> Philips    -> return true als dit type ook is gevonden
-
-
-const televisionOne = inventory.find((television) => {
-  return television.type === '32WL1A63DG'
-})
-// controleren of juiste tv gevonden is:
-//console.log('JUISTE TV? ', televisionOne.brand, televisionOne.type);
-
-// televisie toevoegen op pagina
-// enkel element lokaliseren
-
-const tvOne = document.getElementById('tv-one');
-console.log(tvOne);
-tvOne.textContent = televisionOne.brand + ': ' + televisionOne.type
+// const tvOne = document.createElement('li');
+// tvOne.setAttribute('class', 'productList-item');
+// const tvType = inventory[0].type;
+// tvOne.textContent = tvType;
+//
+// const tvTwo = document.createElement('li');
+// tvTwo.setAttribute('class', 'productList-item');
+// const tvType2 = inventory[1].type;
+// tvTwo.textContent = tvType2;
+//
+// const productList = document.getElementById('productList');
+// productList.appendChild(tvOne);
+// productList.appendChild(tvTwo);
 
 
-const televisionTwo = inventory.find((television) => {
-  return television.type === '55PUS7805';
-})
-// controleren of juiste tv gevonden is:
-//console.log('TWEEDE TV: ', televisionTwo.brand, televisionTwo.type)
+// ------------------------------------------------------------------------------------------------
+// OPDRACHT 5
 
-const tvTwo = document.getElementById('tv-two');
-console.log(tvTwo);
-tvTwo.textContent = televisionTwo.brand + ': ' + televisionTwo.type
+// 5A:
+
+function displayProducts(television) {
+  const tvOne = document.createElement('li');
+  tvOne.setAttribute('class', 'productList-item');
+  const tvType = television.brand + " " + television.type + " - " + television.name;
+  tvOne.textContent = tvType;
+
+  const productList = document.getElementById('productList');
+  productList.appendChild(tvOne);
+}
+
+for (let index = 0; index < inventory.length; index++) {
+  const television = inventory[index];
+  displayProducts(television);
+}
+
+// 5B:
+
+function displayPrice(product) {
+
+}
+const priceList = document.getElementsByClassName('productList-item')
+console.log(priceList)
+
+for (let index = 0; index < inventory.length; index++) {
+  const product = inventory[index];
+
+  const price = document.createElement('p');
+  price.setAttribute('class', 'product-price')
+  priceList[index].appendChild(price)
+
+  const tvPrice = '€' + product.price + ',-';
+  price.textContent = tvPrice;
+
+  displayPrice(product);
+}
 
 
+//     const priceList = document.getElementsByClassName('productList-item');
