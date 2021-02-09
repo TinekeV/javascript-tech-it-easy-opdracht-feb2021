@@ -162,22 +162,6 @@ const inventory = [
   },
 ];
 
-//strategie voor opdracht 1:
-// iets anders? for loop?
-// loopen over alle televisies
-// tellen (variabele count aanmaken)
-// nog te verkopen: originalStock - sold
-// optellen bij het totaal
-
-// stappenplan:
-// [x] functie maken
-// [x] aanroepen
-// [x] parameter toevoegen (inventory)
-// [x] inventory ingeven als argument
-// [x] count variabele (buiten de loop)
-// [x] loop maken (voor elke televisie)
-// [x] originalStock - sold optellen bij count
-// [x] totaal return uit de functie
 
 // opdracht 1A
 function countInventoryToSell(televisions) {
@@ -195,13 +179,6 @@ function countInventoryToSell(televisions) {
 const totalCount = countInventoryToSell(inventory)
 //console.log('OUTSIDE?', totalCount)
 
-// opdracht 1B
-// weergeven op de pagina
-// - [x] Rekenwerk
-// - [x] HTML element maken
-// - [] Element selecteren waar de count moet worden weergegeven
-// - [] textContent aanpassen met TotalCount
-// - [] Rood maken (in CSS)
 
 const notSold = document.getElementById('notSold')
 //console.log(notSold)
@@ -288,20 +265,6 @@ earningsProductsSold.textContent = totalEarnings
 // ------------------------------------------------------------------------------------------------
 // OPDRACHT 4 -- meegenomen in opdracht 5 om het om te bouwen tot een functie
 
-// const tvOne = document.createElement('li');
-// tvOne.setAttribute('class', 'productList-item');
-// const tvType = inventory[0].type;
-// tvOne.textContent = tvType;
-//
-// const tvTwo = document.createElement('li');
-// tvTwo.setAttribute('class', 'productList-item');
-// const tvType2 = inventory[1].type;
-// tvTwo.textContent = tvType2;
-//
-// const productList = document.getElementById('productList');
-// productList.appendChild(tvOne);
-// productList.appendChild(tvTwo);
-
 
 // ------------------------------------------------------------------------------------------------
 // OPDRACHT 5
@@ -317,7 +280,6 @@ function displayProducts(television) {
   const productList = document.getElementById('productList');
   productList.appendChild(tvOne);
 }
-
 for (let index = 0; index < inventory.length; index++) {
   const television = inventory[index];
   displayProducts(television);
@@ -326,7 +288,6 @@ for (let index = 0; index < inventory.length; index++) {
 // 5B:
 
 function displayPrice(product) {
-
 }
 
 for (let index = 0; index < inventory.length; index++) {
@@ -347,53 +308,31 @@ for (let index = 0; index < inventory.length; index++) {
 
 // 5C:
 
-// een string voor alle beschikbare schermgroottes van één tv in zowel inches als cm
-// cm = inches * 2.54
-// resultaat = [schermgrootte] inches ([schermgrootte omgerekend]cm) dus
-// een input van [32] geeft 32 inch (81 cm)
-// maar meerdere inputs geven dan 43 inch (109 cm) | 50 inch (127 cm) | 58 inch (147 cm)
-// lege array voor meerdere sizes => sizeArray = ""
-// counter?
-
 function displayScreenSize(inventory) {
   let sizeArray = [];
-
-  console.log('IS DIT EEN LEGE ARRAY?', sizeArray)
+  //console.log('IS DIT EEN LEGE ARRAY?', sizeArray)
 
   for (let index = 0; index < inventory.length; index++) {
     const sizeArray = inventory[index].availableSizes;
-    console.log(sizeArray);
+    //console.log(sizeArray);
 
     for (const size of sizeArray) {
       const screenSize = size + ' inch (' + Math.floor(size * 2.54) + 'cm) |' // size in cm
-      console.log(screenSize)
+      //console.log(screenSize)
+
+      const sizeList = document.getElementsByClassName('productList-item')
+      const sizes = document.createElement('p');
+      sizes.setAttribute('class', 'product-size')
+      sizes.textContent = screenSize
+      //console.log(sizes)
+
+      sizeList[index].appendChild(sizes)
     }
-
-    // const screenSize = sizeArray + ' inch (' + Math.floor(sizeArray.availableSizes * 2.54) + 'cm) |'
-    // console.log(screenSize)
-
-
-    // const screenSize = Math.floor(sizeArray.availableSizes * 2.54);
-    // console.log('Zijn dit de screensizes?', screenSize);
   }
   return sizeArray
-
 }
-
-
 displayScreenSize(inventory)
 
 
+
 // ------------------------------------------------------------------------------------------------
-// OPDRACHT 6
-
-
-// // dit werkt
-// const sortPriceButton = document.getElementById('button-one');
-// sortPriceButton.addEventListener('click', functionName);
-//
-//
-//
-//
-//
-//
