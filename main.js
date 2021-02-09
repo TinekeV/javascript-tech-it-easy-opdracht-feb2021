@@ -328,21 +328,21 @@ for (let index = 0; index < inventory.length; index++) {
 function displayPrice(product) {
 
 }
-const priceList = document.getElementsByClassName('productList-item')
-//console.log(priceList)
 
 for (let index = 0; index < inventory.length; index++) {
   const product = inventory[index];
 
+  const priceList = document.getElementsByClassName('productList-item')
   const price = document.createElement('p');
   price.setAttribute('class', 'product-price')
-  priceList[index].appendChild(price)
 
   const tvPrice = '€' + product.price + ',-';
   price.textContent = tvPrice;
 
-  displayPrice(product);
+  priceList[index].appendChild(price)
+  displayPrice(product)
 }
+
 
 
 // 5C:
@@ -352,40 +352,48 @@ for (let index = 0; index < inventory.length; index++) {
 // resultaat = [schermgrootte] inches ([schermgrootte omgerekend]cm) dus
 // een input van [32] geeft 32 inch (81 cm)
 // maar meerdere inputs geven dan 43 inch (109 cm) | 50 inch (127 cm) | 58 inch (147 cm)
+// lege array voor meerdere sizes => sizeArray = ""
+// counter?
 
-function displayScreenSize(item) {
+function displayScreenSize(inventory) {
+  let sizeArray = [];
+
+  console.log('IS DIT EEN LEGE ARRAY?', sizeArray)
+
+  for (let index = 0; index < inventory.length; index++) {
+    const sizeArray = inventory[index].availableSizes;
+    console.log(sizeArray);
+
+    for (const size of sizeArray) {
+      const screenSize = size + ' inch (' + Math.floor(size * 2.54) + 'cm) |' // size in cm
+      console.log(screenSize)
+    }
+
+    // const screenSize = sizeArray + ' inch (' + Math.floor(sizeArray.availableSizes * 2.54) + 'cm) |'
+    // console.log(screenSize)
+
+
+    // const screenSize = Math.floor(sizeArray.availableSizes * 2.54);
+    // console.log('Zijn dit de screensizes?', screenSize);
+  }
+  return sizeArray
 
 }
+
+
+displayScreenSize(inventory)
 
 
 // ------------------------------------------------------------------------------------------------
 // OPDRACHT 6
 
-// button 1
-// getElementbyID
-// nu de functie nog fixen
 
-function pricesLowToHigh() {
-  inventory.sort((priceA, priceB) => {
-    return priceA.price - priceB.price
-
-  })
-}
-// dit werkt
-const sortPriceButton = document.getElementById('button-one');
-sortPriceButton.addEventListener('click', pricesLowToHigh);
-
-
-// ---------------------------------------------------------------------------
-
-
-function ambiLightOption() {
-  inventory.filter((television) => {
-    if (television.options.ambiLight === true ) {
-      return inventory
-    }
-  })
-}
-
-const ambiLightButton = document.getElementById('button-two');
-ambiLightButton.addEventListener('click', ambiLightOption);
+// // dit werkt
+// const sortPriceButton = document.getElementById('button-one');
+// sortPriceButton.addEventListener('click', functionName);
+//
+//
+//
+//
+//
+//
