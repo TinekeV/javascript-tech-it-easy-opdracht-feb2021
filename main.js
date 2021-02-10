@@ -268,19 +268,38 @@ function displaySize(size) {
 }
 //displaySize(inventory[2].availableSizes)
 
-const fullInfoPartOne = displayProducts(inventory[2])
-const fullInfoPartTwo = displayPrice(inventory[2].price)
-const fullInfoPartThree = displaySize(inventory[2].availableSizes)
+// const fullInfoPartOne = displayProducts(inventory[2])
+// const fullInfoPartTwo = displayPrice(inventory[2].price)
+// const fullInfoPartThree = displaySize(inventory[2].availableSizes)
+//
+// console.log(fullInfoPartOne)
+// console.log(fullInfoPartTwo)
+// console.log(fullInfoPartThree)
 
-console.log(fullInfoPartOne)
-console.log(fullInfoPartTwo)
-console.log(fullInfoPartThree)
 
-const televisionList = document.getElementById('productList');
-const displayAll = document.createElement('p');
-displayAll.setAttribute('id', 'product-item');
-displayAll.setAttribute('style', 'white-space: pre;')
 
-displayAll.textContent = displayProducts(inventory[2]) + `\n` + displayPrice(inventory[2].price) + `\n` + displaySize(inventory[2].availableSizes);
-televisionList.appendChild(displayAll);
+// -----------------------------------------------------
+// functie zodat alle TV's weergegeven worden
 
+function displayTvInfo(inventory) {
+  let tvArray = "";
+
+  for (let i = 0; i < inventory.length; i++) {
+    let product = inventory[i];
+    //console.log(product)
+
+    tvArray = displayProducts(inventory[i]) + `\n` + displayPrice(inventory[i].price) + `\n` + displaySize(inventory[i].availableSizes)
+    console.log(tvArray)
+
+    const televisionList = document.getElementById('productList');
+    const displayAll = document.createElement('p');
+    displayAll.setAttribute('id', 'product-item');
+    displayAll.setAttribute('style', 'white-space: pre;')
+
+    displayAll.textContent = displayProducts(inventory[i]) + `\n` + displayPrice(inventory[i].price) + `\n` + displaySize(inventory[i].availableSizes);
+    televisionList.appendChild(displayAll);
+  }
+  return tvArray
+}
+
+displayTvInfo(inventory)
