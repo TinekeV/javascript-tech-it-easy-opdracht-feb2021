@@ -162,8 +162,8 @@ const inventory = [
   },
 ];
 
-
-// opdracht 1A
+// ------------------------------------------------------------------------------------------------
+// opdracht 1
 function countInventoryToSell(televisions) {
   let totalCount = 0;
   for (const television of televisions) {
@@ -179,7 +179,7 @@ const notSold = document.getElementById('notSold')
 
 
 // ------------------------------------------------------------------------------------------------
-// Opdracht 2
+// Opdracht 2 - gemaakt, maar omdat ik de bonus opdrachten nog niet heb gedaan uitgecomment
 // const televisionType = inventory.map((television)=> {
 //   return television.brand + " " + television.name
 // })
@@ -237,56 +237,35 @@ earningsProductsSold.textContent = totalEarnings
 // ------------------------------------------------------------------------------------------------
 // OPDRACHT 5
 
-// 5A:
 
 function displayProducts(television) {
-  // console.log('functie aangeroepen?', television)
   const tvType = `${television.brand} ${television.type} - ${television.name}`
   return tvType
-  //console.log('RES:', tvType)
 }
 
-//displayProducts(inventory[2]);
 
 function displayPrice(price) {
-  // console.log('functie aangeroepen?', price)
   const tvPrice = `€${price},- `;
   return tvPrice
-  //console.log(tvPrice)
 }
-
-//displayPrice(inventory[2].price)
 
 function displaySize(size) {
   let sizeArray = "";
 
   for (let i = 0; i < size.length; i++) {
     sizeArray = sizeArray + `${size[i]} inch (${Math.floor(size[i] * 2.54)} cm) | `
-    //console.log(sizeArray)
+
   }
   return sizeArray
 }
-//displaySize(inventory[2].availableSizes)
-
-// const fullInfoPartOne = displayProducts(inventory[2])
-// const fullInfoPartTwo = displayPrice(inventory[2].price)
-// const fullInfoPartThree = displaySize(inventory[2].availableSizes)
-//
-// console.log(fullInfoPartOne)
-// console.log(fullInfoPartTwo)
-// console.log(fullInfoPartThree)
 
 
-
-// -----------------------------------------------------
-// functie zodat alle TV's weergegeven worden
-
+// functie die alle TV's weergeeft
 function displayTvInfo(inventory) {
   let tvArray = "";
 
   for (let i = 0; i < inventory.length; i++) {
     let product = inventory[i];
-    //console.log(product)
 
     tvArray = displayProducts(inventory[i]) + `\n` + displayPrice(inventory[i].price) + `\n` + displaySize(inventory[i].availableSizes)
     console.log(tvArray)
