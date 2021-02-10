@@ -165,106 +165,74 @@ const inventory = [
 
 // opdracht 1A
 function countInventoryToSell(televisions) {
-  //console.log('SALES!', televisions);
   let totalCount = 0;
   for (const television of televisions) {
-    //console.log("television in loop", television.originalStock, television.sold)
     const toSell = television.originalStock - television.sold;
     totalCount = totalCount + toSell
   }
-  //console.log('TOTAL COUNT', totalCount)
   return totalCount
 }
 
 const totalCount = countInventoryToSell(inventory)
-//console.log('OUTSIDE?', totalCount)
-
-
 const notSold = document.getElementById('notSold')
-//console.log(notSold)
   notSold.textContent = totalCount;
 
 
 // ------------------------------------------------------------------------------------------------
-// Opdracht 2A
-const televisionType = inventory.map((television)=> {
-  return television.brand + " " + television.name
-})
-//console.log(televisionType)
-
-// Opdracht 2B
-const televisionsSold = inventory.filter((television) => {
-    if (television.sold === television.originalStock) {
-      return inventory
-    }
-})
-//console.log(televisionsSold)
-
-// Opdracht 2C
-const optionAmbiLight = inventory.filter((television) => {
-  if (television.options.ambiLight === true ) {
-    return inventory
-  }
-})
-//console.log(optionAmbiLight)
-
-// Opdracht 2D
-const lowToHighPrice = inventory.sort((priceA, priceB) => {
-  return priceA.price - priceB.price
-})
-//console.log(lowToHighPrice)
+// Opdracht 2
+// const televisionType = inventory.map((television)=> {
+//   return television.brand + " " + television.name
+// })
+//
+// const televisionsSold = inventory.filter((television) => {
+//     if (television.sold === television.originalStock) {
+//       return inventory
+//     }
+// })
+//
+// const optionLight = inventory.filter((television) => {
+//   if (television.options.ambiLight === true ) {
+//     return inventory
+//   }
+// })
+//
+// const lowToHighPrice = inventory.sort((priceA, priceB) => {
+//   return priceA.price - priceB.price
+// })
 
 
 // ------------------------------------------------------------------------------------------------
-// OPDRACHT 3A
-
-// wat is onze doel opbrengst? bereken de totale opbrengst als alle exemplaren van iedere type verkocht zou worden
-// originalstock x price voor elk televisie type
-// loop met een counter maken
+// OPDRACHT 3
 
 function targetRevenue(products) {
-  //console.log('SALES!', products);
   let totalRevenue = 0;
   for (const product of products) {
-    //console.log("television in loop", product.originalStock, product.price);
     const targetEarnings = product.originalStock * product.price;
     totalRevenue = totalRevenue + targetEarnings;
   }
-  //console.log('TOTAL REVENUE: ', totalRevenue);
   return totalRevenue;
 }
 
 const totalRevenue = targetRevenue(inventory);
-//console.log('OUTSIDE LOOP: ', totalRevenue);
-
 const revenueProducts = document.getElementById('revenue');
-//console.log(revenueProducts)
 revenueProducts.textContent = totalRevenue;
 
-// OPDRACHT 3B
-
 function totalEarned(products) {
-  //console.log('SALES!', products);
   let earnings = 0;
   for (const product of products) {
-    //console.log("television in loop", product.sold, product.price);
+
     const soldProducts = product.sold * product.price;
     earnings = earnings + soldProducts;
   }
-  //console.log('EARNED ON SOLD PRODUCTS: ', earnings);
   return earnings;
 }
 
 const totalEarnings = totalEarned(inventory);
-//console.log('OUTSIDE LOOP: ', totalEarnings);
-
 const earningsProductsSold = document.getElementById('earnings');
-//console.log(earningsProductsSold)
 earningsProductsSold.textContent = totalEarnings
 
 // ------------------------------------------------------------------------------------------------
-// OPDRACHT 4 -- meegenomen in opdracht 5 om het om te bouwen tot een functie
-
+// OPDRACHT 4 -- meegenomen in opdracht 5
 
 // ------------------------------------------------------------------------------------------------
 // OPDRACHT 5
@@ -272,67 +240,47 @@ earningsProductsSold.textContent = totalEarnings
 // 5A:
 
 function displayProducts(television) {
-  const tvOne = document.createElement('li');
-  tvOne.setAttribute('class', 'productList-item');
-  const tvType = television.brand + " " + television.type + " - " + television.name;
-  tvOne.textContent = tvType;
-
-  const productList = document.getElementById('productList');
-  productList.appendChild(tvOne);
-}
-for (let index = 0; index < inventory.length; index++) {
-  const television = inventory[index];
-  displayProducts(television);
+  // console.log('functie aangeroepen?', television)
+  const tvType = `${television.brand} ${television.type} - ${television.name}`
+  return tvType
+  //console.log('RES:', tvType)
 }
 
-// 5B:
+//displayProducts(inventory[2]);
 
-function displayPrice(product) {
+function displayPrice(price) {
+  // console.log('functie aangeroepen?', price)
+  const tvPrice = `€${price},- `;
+  return tvPrice
+  //console.log(tvPrice)
 }
 
-for (let index = 0; index < inventory.length; index++) {
-  const product = inventory[index];
+//displayPrice(inventory[2].price)
 
-  const priceList = document.getElementsByClassName('productList-item')
-  const price = document.createElement('p');
-  price.setAttribute('class', 'product-price')
+function displaySize(size) {
+  let sizeArray = "";
 
-  const tvPrice = '€' + product.price + ',-';
-  price.textContent = tvPrice;
-
-  priceList[index].appendChild(price)
-  displayPrice(product)
-}
-
-
-
-// 5C:
-
-function displayScreenSize(inventory) {
-  let sizeArray = [];
-  //console.log('IS DIT EEN LEGE ARRAY?', sizeArray)
-
-  for (let index = 0; index < inventory.length; index++) {
-    const sizeArray = inventory[index].availableSizes;
-    //console.log(sizeArray);
-
-    for (const size of sizeArray) {
-      const screenSize = size + ' inch (' + Math.floor(size * 2.54) + 'cm) |' // size in cm
-      //console.log(screenSize)
-
-      const sizeList = document.getElementsByClassName('productList-item')
-      const sizes = document.createElement('p');
-      sizes.setAttribute('class', 'product-size')
-      sizes.textContent = screenSize
-      //console.log(sizes)
-
-      sizeList[index].appendChild(sizes)
-    }
+  for (let i = 0; i < size.length; i++) {
+    sizeArray = sizeArray + `${size[i]} inch (${Math.floor(size[i] * 2.54)} cm) | `
+    //console.log(sizeArray)
   }
   return sizeArray
 }
-displayScreenSize(inventory)
+//displaySize(inventory[2].availableSizes)
 
+const fullInfoPartOne = displayProducts(inventory[2])
+const fullInfoPartTwo = displayPrice(inventory[2].price)
+const fullInfoPartThree = displaySize(inventory[2].availableSizes)
 
+console.log(fullInfoPartOne)
+console.log(fullInfoPartTwo)
+console.log(fullInfoPartThree)
 
-// ------------------------------------------------------------------------------------------------
+const televisionList = document.getElementById('productList');
+const displayAll = document.createElement('p');
+displayAll.setAttribute('id', 'product-item');
+displayAll.setAttribute('style', 'white-space: pre;')
+
+displayAll.textContent = displayProducts(inventory[2]) + `\n` + displayPrice(inventory[2].price) + `\n` + displaySize(inventory[2].availableSizes);
+televisionList.appendChild(displayAll);
+

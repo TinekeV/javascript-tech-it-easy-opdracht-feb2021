@@ -13,45 +13,45 @@ body {
 }
 
 .one {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 200px;
     background-color: white;
     border: #ff0000 solid 10px;
 }
 
 #notSold {
     color: red;
-    font-size: 50px;
+    font-size: 30px;
     text-align: center;
 }
 
 .two {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 200px;
     background-color: white;
     border: blue solid 10px;
 }
 
 #revenue {
     color: blue;
-    font-size: 50px;
+    font-size: 30px;
     text-align: center;
 }
 
 .three {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 200px;
     background-color: white;
     border: #0eea0e solid 10px;
 }
 
 #earnings {
     color: #0eea0e;
-    font-size: 50px;
+    font-size: 30px;
     text-align: center;
 }
 
-h1, h3, ul {
+h3 {
     text-align: center;
 }
 
@@ -67,39 +67,12 @@ h1, h3, ul {
 }
 
 #productList {
-    width: 900px;
-    /*height: 800px;*/
-    background-color: #ffffff;
-    border: #a5a5a5 solid 10px;
-
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    width: 750px;
+    height: 500px;
+    background-color: #b7b2b2;
 
 }
 
-.productList-item {
-    /*width: 300px;*/
-    /*height: 100px;*/
-    background-color: #cbc8c8;
-    padding: 10px;
-    margin: 10px;
-    /*border-radius: 10px;*/
-
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-p.product-price {
-    background-color: #ff0049;
-}
-
-p.product-size{
-    background-color: #00fff7;
-    display: flex;
-}
 
 
 /*.buttons {*/
