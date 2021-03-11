@@ -1,0 +1,81 @@
+body {
+    background-color: #ffffff;
+    font-family: "Roboto Light", sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.one {
+    width: 200px;
+    height: 150px;
+    background-color: white;
+    border: #ff0000 solid 10px;
+}
+
+#notSold {
+    color: red;
+    font-size: 30px;
+    text-align: center;
+}
+
+.two {
+    width: 200px;
+    height: 150px;
+    background-color: white;
+    border: blue solid 10px;
+}
+
+#revenue {
+    color: blue;
+    font-size: 30px;
+    text-align: center;
+}
+
+.three {
+    width: 200px;
+    height: 150px;
+    background-color: white;
+    border: #0eea0e solid 10px;
+}
+
+#earnings {
+    color: #0eea0e;
+    font-size: 30px;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+
+.television-stock {
+    display: flex;
+    justify-content: center;
+}
+
+#productList {
+    /*width: 800px;*/
+    /*height: 500px;*/
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+#product-item {
+    background-color: #e3e3e3;
+    padding: 15px;
+    border-radius: 10px;
+}
+

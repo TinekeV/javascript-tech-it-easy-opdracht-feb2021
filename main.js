@@ -161,3 +161,116 @@ const inventory = [
     sold: 8,
   },
 ];
+
+// ------------------------------------------------------------------------------------------------
+// opdracht 1
+function countInventoryToSell(televisions) {
+  let totalCount = 0;
+  for (const television of televisions) {
+    const toSell = television.originalStock - television.sold;
+    totalCount = totalCount + toSell
+  }
+  return totalCount
+}
+
+const totalCount = countInventoryToSell(inventory)
+const notSold = document.getElementById('notSold')
+  notSold.textContent = totalCount;
+
+
+// ------------------------------------------------------------------------------------------------
+// Opdracht 2 - gemaakt, maar omdat ik de bonus opdrachten nog niet heb gedaan uitgecomment
+// const televisionType = inventory.map((television)=> {
+//   return television.brand + " " + television.name
+// })
+//
+// const televisionsSold = inventory.filter((television) => television.sold === television.originalStock);
+//
+// const optionLight =  inventory.filter(television => television.options.ambiLight);
+//
+// const lowToHighPrice = inventory.sort((priceA, priceB) => {
+//   return priceA.price - priceB.price
+// })
+
+
+// ------------------------------------------------------------------------------------------------
+// OPDRACHT 3
+
+function targetRevenue(products) {
+  let totalRevenue = 0;
+  for (const product of products) {
+    const targetEarnings = product.originalStock * product.price;
+    totalRevenue = totalRevenue + targetEarnings;
+  }
+  return totalRevenue;
+}
+
+const totalRevenue = targetRevenue(inventory);
+const revenueProducts = document.getElementById('revenue');
+revenueProducts.textContent = totalRevenue;
+
+function totalEarned(products) {
+  let earnings = 0;
+  for (const product of products) {
+
+    const soldProducts = product.sold * product.price;
+    earnings = earnings + soldProducts;
+  }
+  return earnings;
+}
+
+const totalEarnings = totalEarned(inventory);
+const earningsProductsSold = document.getElementById('earnings');
+earningsProductsSold.textContent = totalEarnings
+
+// ------------------------------------------------------------------------------------------------
+// OPDRACHT 4 -- meegenomen in opdracht 5
+
+// ------------------------------------------------------------------------------------------------
+// OPDRACHT 5
+
+
+function displayProducts(television) {
+  const tvType = `${television.brand} ${television.type} - ${television.name}`
+  return tvType
+}
+
+
+function displayPrice(price) {
+  const tvPrice = `€${price},- `;
+  return tvPrice
+}
+
+function displaySize(size) {
+  let sizeArray = "";
+
+  for (let i = 0; i < size.length; i++) {
+    sizeArray = sizeArray + `${size[i]} inch (${Math.floor(size[i] * 2.54)} cm) | `
+
+  }
+  return sizeArray
+}
+
+
+// functie die alle TV's weergeeft
+function displayTvInfo(inventory) {
+  let tvArray = "";
+
+  for (let i = 0; i < inventory.length; i++) {
+    let product = inventory[i];
+
+    tvArray = displayProducts(inventory[i]) + `\n` + displayPrice(inventory[i].price) + `\n` + displaySize(inventory[i].availableSizes)
+    console.log(tvArray)
+
+    const televisionList = document.getElementById('productList');
+    const displayAll = document.createElement('p');
+    displayAll.setAttribute('id', 'product-item');
+    displayAll.setAttribute('style', 'white-space: pre;')
+
+    displayAll.textContent = displayProducts(inventory[i]) + `\n` + displayPrice(inventory[i].price) + `\n` + displaySize(inventory[i].availableSizes);
+    televisionList.appendChild(displayAll);
+  }
+  return tvArray
+}
+
+displayTvInfo(inventory)
