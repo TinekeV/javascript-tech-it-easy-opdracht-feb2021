@@ -184,17 +184,9 @@ const notSold = document.getElementById('notSold')
 //   return television.brand + " " + television.name
 // })
 //
-// const televisionsSold = inventory.filter((television) => {
-//     if (television.sold === television.originalStock) {
-//       return inventory
-//     }
-// })
+// const televisionsSold = inventory.filter((television) => television.sold === television.originalStock);
 //
-// const optionLight = inventory.filter((television) => {
-//   if (television.options.ambiLight === true ) {
-//     return inventory
-//   }
-// })
+// const optionLight =  inventory.filter(television => television.options.ambiLight);
 //
 // const lowToHighPrice = inventory.sort((priceA, priceB) => {
 //   return priceA.price - priceB.price
